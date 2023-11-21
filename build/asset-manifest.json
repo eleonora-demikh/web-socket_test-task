@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/web-socket_test-task/static/css/main.e53e5609.css",
+    "main.js": "/web-socket_test-task/static/js/main.d2cc7b3f.js",
+    "index.html": "/web-socket_test-task/index.html",
+    "main.e53e5609.css.map": "/web-socket_test-task/static/css/main.e53e5609.css.map",
+    "main.d2cc7b3f.js.map": "/web-socket_test-task/static/js/main.d2cc7b3f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e53e5609.css",
+    "static/js/main.d2cc7b3f.js"
+  ]
+}
