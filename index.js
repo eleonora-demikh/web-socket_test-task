@@ -1,11 +1,8 @@
-const http = require('http');
-const express = require('express');
 const ws = require('ws');
 
-const app = express();
-const server = http.createServer(app);
+const PORT = process.env.PORT || 5000;
 
-const wss = new ws.Server({ server });
+const wss = new ws.Server({ port: PORT });
 
 wss.on('connection', (ws) => {
   console.log('New person connected');
@@ -27,10 +24,4 @@ server.on('upgrade', (request, socket, head) => {
   wss.handleUpgrade(request, socket, head, (ws) => {
     wss.emit('connection', ws, request);
   });
-});
-
-const PORT = process.env.PORT || 5000;
-
-server.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
 });
