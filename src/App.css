@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(3, 35, 3);
+  padding: 10% 0;
+}
+
+.text-area {
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid green;
+  padding: 10px;
+}
+
+.btn {
+  height: 30px;
+  padding: 0 10px;
+  margin-left: 4px;
+  border: 1px solid green;
+  background-color: #053c16;
+  border-radius: 10px;
+  color: white;
+}
+
+.chat-container {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.join-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-textarea {
+  width: calc(100% - 70px);
+  margin-left: 6px;
+}
+
+.chat-textarea-container {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}
+
+.messages {
+ height: calc(100% - 50px);
+ padding: 10px;
+ display: flex;
+ flex-direction: column-reverse;
+ overflow: auto;
+}
+
+.join-message {
+  width: 380px;
+  text-align: center;
+  background-color: white;
+}
+
+.message {
+  max-width: 100%;
+  word-break: break-all;
+  margin: 4px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.outcoming {
+  width: fit-content;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  border-radius: 10px;
+  background-color: rgb(218, 236, 218);
+  align-self: flex-end;
+}
+
+.incoming {
+  width: fit-content;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  border-radius: 10px;
+  background-color: rgb(218, 236, 218);
+  align-self: flex-start;
+}
+
+.username {
+  color: #075921;
+}
