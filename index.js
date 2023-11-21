@@ -20,7 +20,7 @@ wss.on('connection', (ws) => {
   });
 });
 
-wss.server.on('upgrade', (request, socket, head) => {
+wss.server?.on('upgrade', (request, socket, head) => {
   wss.handleUpgrade(request, socket, head, (ws) => {
     wss.emit('connection', ws, request);
   });
