@@ -27,7 +27,7 @@ const ChatApp = () => {
   });
 
   function connect() {
-    socket.current = new WebSocket('ws://localhost:5000');
+    socket.current = new WebSocket("wss://chat-test-task.onrender.com");
 
     socket.current.onopen = () => {
       setConnected(true);
