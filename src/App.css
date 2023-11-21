@@ -1,7 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: large;
 }
 
 .container {
@@ -21,18 +22,28 @@
 }
 
 .btn {
-  height: 30px;
-  padding: 0 10px;
-  margin-left: 4px;
   border: 1px solid green;
   background-color: #053c16;
   border-radius: 10px;
   color: white;
+  height: 30px;
+  padding: 0 10px;
+  margin-left: 4px;
+  height: 42px;
+  max-height: 60px;
+  font-size: large;
+}
+
+.join-btn {
+  margin-top: 10px;
+  width: 50%;
+  font-size: x-large;
 }
 
 .chat-container {
   position: relative;
   width: 90%;
+  max-width: 900px;
   height: 90%;
   background-color: white;
   border-radius: 10px;
@@ -40,23 +51,34 @@
 
 .join-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.join-textarea {
+  width: 80%;
+  height: 10%;
+  max-height: 60px;
+  font-size: large;
+}
+
 .chat-textarea {
-  width: calc(100% - 70px);
-  margin-left: 6px;
+  max-width: 80%;
+  width: 100%;
+  height: 100%;
 }
 
 .chat-textarea-container {
   position: absolute;
+  display: flex;
+  justify-content: center;
   width: 100%;
   bottom: 10px;
 }
 
 .messages {
- height: calc(100% - 50px);
+ height: 90%;
  padding: 10px;
  display: flex;
  flex-direction: column-reverse;

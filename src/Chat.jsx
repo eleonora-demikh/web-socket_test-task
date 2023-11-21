@@ -27,27 +27,29 @@ const ChatApp = () => {
   });
 
   const connect = async () => {
-    socket.current = new WebSocket("wss://chat-test-task.onrender.com");
+    if (username.trim().length > 0) {
+      socket.current = new WebSocket("wss://chat-test-task.onrender.com");
 
-    socket.current.onopen = () => {
-      setConnected(true);
-      const message = {
-        event: "connection",
-        username,
-        id: Date.now(),
+      socket.current.onopen = () => {
+        setConnected(true);
+        const message = {
+          event: "connection",
+          username,
+          id: Date.now(),
+        };
+        socket.current.send(JSON.stringify(message));
       };
-      socket.current.send(JSON.stringify(message));
-    };
-    socket.current.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-      setMessages((prev) => [message, ...prev]);
-    };
-    socket.current.onclose = () => {
-      console.log("Chat was closed");
-    };
-    socket.current.onerror = () => {
-      console.log("Something went wrong");
-    };
+      socket.current.onmessage = (event) => {
+        const message = JSON.parse(event.data);
+        setMessages((prev) => [message, ...prev]);
+      };
+      socket.current.onclose = () => {
+        console.log("Chat was closed");
+      };
+      socket.current.onerror = () => {
+        console.log("Something went wrong");
+      };
+    }
   }
 
   const handleSendMessage = async () => {
@@ -71,10 +73,10 @@ const ChatApp = () => {
             type='text'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className='text-area'
+            className='text-area join-textarea'
             placeholder='Enter your name...'
           />
-          <button className='btn' onClick={connect}>
+          <button className='btn join-btn' onClick={connect}>
             Join
           </button>
         </div>
@@ -99,7 +101,7 @@ const ChatApp = () => {
                     message.username === username ? "outcoming" : "incoming"
                   }`}
                 >
-                  <h6 className='username'>{message.username}</h6>
+                  <h5 className='username'>{message.username}</h5>
                   {message.message}
                 </div>
               )}
