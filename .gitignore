@@ -1,4 +1,9 @@
+# IDE
+.idea
+.vscode
+
 # Node
 node_modules
 
-build
+# MacOS
+.DS_Store

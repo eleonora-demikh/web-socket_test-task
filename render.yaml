@@ -1,0 +1,9 @@
+services:
+  - name: server
+    env:
+      - key: NODE_ENV
+        value: production
+    buildCommand: npm install
+    startCommand: npm start
+    addOns:
+      - name: render/websockets
