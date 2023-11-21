@@ -1,6 +1,11 @@
+const http = require('http');
+const express = require('express');
 const ws = require('ws');
 
-const wss = new ws.Server({ noServer: true });
+const app = express();
+const server = http.createServer(app);
+
+const wss = new ws.Server({ server });
 
 wss.on('connection', (ws) => {
   console.log('New person connected');
@@ -18,8 +23,14 @@ wss.on('connection', (ws) => {
   });
 });
 
-wss.server.on('upgrade', (request, socket, head) => {
+server.on('upgrade', (request, socket, head) => {
   wss.handleUpgrade(request, socket, head, (ws) => {
     wss.emit('connection', ws, request);
   });
+});
+
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
