@@ -89,7 +89,7 @@
 
 .message {
   max-width: 100%;
-  word-break: break-all;
+  word-break: auto-phrase;
   margin: 4px 0;
   display: flex;
   flex-direction: column;
