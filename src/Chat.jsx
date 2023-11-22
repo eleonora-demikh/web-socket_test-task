@@ -6,6 +6,7 @@ const ChatApp = () => {
   const [newMessage, setNewMessage] = useState("");
   const [connected, setConnected] = useState(false);
   const [username, setUsername] = useState("");
+  const [userId, setUserId] = useState("");
   const socket = useRef();
 
   useEffect(() => {
@@ -36,7 +37,9 @@ const ChatApp = () => {
           event: "connection",
           username,
           id: Date.now(),
+          userId: Date.now(),
         };
+        setUserId(message.userId);
         socket.current.send(JSON.stringify(message));
       };
       socket.current.onmessage = (event) => {
@@ -57,6 +60,7 @@ const ChatApp = () => {
       const message = {
         event: 'message',
         username,
+        userId,
         message: newMessage,
         id: Date.now(),
       }
@@ -98,7 +102,7 @@ const ChatApp = () => {
               ) : (
                 <div
                   className={`${
-                    message.username === username ? "outcoming" : "incoming"
+                    message.userId === userId ? "outcoming" : "incoming"
                   }`}
                 >
                   <h5 className='username'>{message.username}</h5>
